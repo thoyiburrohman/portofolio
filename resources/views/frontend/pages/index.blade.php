@@ -1,0 +1,337 @@
+@extends('frontend.layout.home')
+@push('style')
+@endpush
+@section('content')
+    <nav class="navbar navbar-expand-lg bg-primary sticky-top">
+        <div class="container px-lg-5">
+            <a class="navbar-brand text-uppercase fw-semibold text-primary" href="index.html">Thoyiburrohman</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase fw-semibold">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Skill</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Projcect</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown dropdown-end">
+                            <button id="btn" class="btn btn-primary p-lg-2 px-0 text-uppercase dropdown-toggle"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Theme
+                            </button>
+                            <ul class="dropdown-menu" style="min-width: 1rem">
+                                <li>
+                                    <button class="dropdown-item d-flex justify-content-lg-center align-items-center"
+                                        type="button" data-bs-theme-value="dark">
+                                        <i class="bi bi-moon-stars-fill me-2"></i>
+                                        Dark
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="dropdown-item d-flex justify-content-lg-center align-items-center"
+                                        type="button" data-bs-theme-value="light">
+                                        <i class="bi bi-sun-fill me-2"></i> Light
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- hero -->
+    <section class="hero">
+        <div class="container p-5">
+            <div class="row justify-content-center align-items-center ">
+                <div class="col-lg-6 px-4 d-flex justify-content-center">
+                    <div class="home-text  text-lg-start text-center">
+                        <h5 class="">Official site
+                        </h5>
+                        <h1 class="title text-uppercase fw-bold mt-3 mb-2 text-primary">thoyiburrohman</h1>
+                        <h5 class="mb-3">Employe & Freelancer</h5>
+                        <a href="https/wa.me/+6281285247694" class="btn btn-primary text-capitalize me-2">Hire Me</a>
+                        <!-- <a href="/download-cv"class="btn btn-outline-primary text-capitalize">Download CV</a> -->
+                        <div class="social justify-content-lg-start justify-content-center mt-3">
+                            <div class="social-item">
+                                <a href="https://facebook.com/thoyiburrohman"><i
+                                        class="uil uil-facebook-f text-primary"></i></a>
+                            </div>
+                            <div class="social-item">
+                                <a href="https://instagram.com/thoyiburrohman"><i
+                                        class="uil uil-instagram text-primary"></i></a>
+                            </div>
+                            <div class="social-item">
+                                <a href="https://twitter.com/thoyiburrohman"><i
+                                        class="uil uil-twitter text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 m-lg-0 mt-5 px-4 text-center">
+                    <img src="/asset/img/profile-1.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero End -->
+    <section class="about my-5" id="about">
+        <div class="container py-5">
+            <div class="row">
+                <div class="text-center fw-bold text-primary text-uppercase fs-2">About</div>
+                <div class="text-center fw-normal text-capitalize mb-5">my intro</div>
+            </div>
+            <div class="row justify-content-center align-items-center mb-4">
+                <div class="col-lg-5 text-center col-12 mb-lg-0 mb-4">
+                    <img src="/asset/img/profile.png" alt="">
+                </div>
+                <div class="col-lg-7 col-12">
+                    <div class="row justify-content-center align-content-center ">
+                        <div class="col-lg-4 col-7 mb-3">
+                            <div class="card bg-primary">
+                                <div class="card-body">
+                                    <div class="icon-item text-center text-white">
+                                        <i class="bi bi-award"></i>
+                                    </div>
+                                    <div class="about-title text-center text-white mb-1 text-capitalize">
+                                        <span>experience</span>
+                                    </div>
+                                    <div class="about-subtitle text-center text-capitalize">
+                                        <span>1+ Years</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-7 mb-3">
+                            <div class="card bg-primary">
+                                <div class="card-body">
+                                    <div class="icon-item text-center text-white">
+                                        <i class="bi bi-bag"></i>
+                                    </div>
+                                    <div class="about-title text-center text-white mb-1 text-capitalize">
+                                        <span>project</span>
+                                    </div>
+                                    <div class="about-subtitle text-center text-capitalize">
+                                        <span>1+ project</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-7 mb-3">
+                            <div class="card bg-primary">
+                                <div class="card-body">
+                                    <div class="icon-item text-center text-white">
+                                        <i class="bi bi-headphones"></i>
+                                    </div>
+                                    <div class="about-title text-center text-white mb-1 text-capitalize">
+                                        <span>Support</span>
+                                    </div>
+                                    <div class="about-subtitle text-center text-capitalize">
+                                        <span>24/7 Hours</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center align-content-center ">
+                        <div class="col-10 col-lg-12">
+                            <p class="text-secondary text-lg-start text-center"></p>
+                        </div>
+                    </div>
+                    <div class="link-to text-center text-lg-start">
+                        <a href="https/wa.me/+6281285247694" class="btn btn-primary text-capitalize me-2">Hire Me</a>
+
+                        <!-- <a href="/download-cv"class="btn btn-outline-primary text-capitalize">Download CV</a> -->
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section class="skills my-5" id="skills">
+        <div class="container py-5">
+            <div class="row">
+                <div class="text-center fw-bold text-primary text-uppercase fs-2">skills</div>
+                <div class="text-center fw-normal text-capitalize fs-5 mb-5">My Technical</div>
+            </div>
+            <div class="row justify-content-center align-items-center mx-2">
+                <div class="col-lg-6 col-12 mb-4">
+                    <div class="card bg-primary">
+                        <div class="card-body">
+                            <div class="row justify-content-center text-center ">
+                                <div class="text-uppercase fw-semibold text-dark mb-4">Frontend Developer</div>
+                                <div class="col-6 text-white text-start">
+                                    <ul class="nav-item">
+                                        <li class="nav-link">
+                                            <i class="uil uil-check-circle me-2"></i><span>HTML</span>
+                                        </li>
+                                        <li class="nav-link">
+                                            <i class="uil uil-check-circle me-2"></i><span>CSS</span>
+                                        </li>
+                                        <li class="nav-link">
+                                            <i class="uil uil-check-circle me-2"></i><span>JavaScript</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-6 text-white text-start">
+                                    <ul class="nav-item">
+                                        <li class="nav-link">
+                                            <i class="uil uil-check-circle me-2"></i><span>Bootstrap</span>
+                                        </li>
+                                        <li class="nav-link">
+                                            <i class="uil uil-check-circle me-2"></i><span>TailwindCSS</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 mb-4">
+                    <div class="card bg-primary">
+                        <div class="card-body">
+                            <div class="row justify-content-center text-center ">
+                                <div class="text-uppercase fw-semibold text-dark mb-4">Backend Developer</div>
+                                <div class="col-6 text-white text-start">
+                                    <ul class="nav-item">
+                                        <li class="nav-link">
+                                            <i class="uil uil-check-circle me-2"></i><span>PHP</span>
+                                        </li>
+                                        <li class="nav-link">
+                                            <i class="uil uil-check-circle me-2"></i><span>CodeIgniter</span>
+                                        </li>
+                                        <li class="nav-link">
+                                            <i class="uil uil-check-circle me-2"></i><span>Laravel</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-6 text-white text-start">
+                                    <ul class="nav-item">
+                                        <li class="nav-link">
+
+                                            <i class="uil uil-check-circle me-2"></i><span>MySQL</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 mb-4">
+                    <div class="card bg-primary">
+                        <div class="card-body">
+                            <div class="row justify-content-center text-center ">
+                                <div class="text-uppercase fw-semibold text-dark mb-4">Design</div>
+                                <div class="col-6 text-white text-start">
+                                    <ul class="nav-item">
+                                        <li class="nav-link">
+
+                                            <i class="uil uil-check-circle me-2"></i><span>Photoshop</span>
+                                        </li>
+                                        <li class="nav-link">
+                                            <i class="uil uil-check-circle me-2"></i><span>Ilustrator</span>
+                                        </li>
+                                        <li class="nav-link">
+                                            <i class="uil uil-check-circle me-2"></i><span>Figma</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-6 text-white text-start">
+                                    <ul class="nav-item">
+                                        <li class="nav-link">
+
+                                            <i class="uil uil-check-circle me-2"></i><span>Corel Draw</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="projects" id="projects">
+        <div class="container py-5">
+            <div class="row">
+                <div class="text-center fw-bold text-primary text-uppercase fs-2">project</div>
+                <div class="text-center fw-normal text-capitalize mb-5">My recent work</div>
+            </div>
+            <div class="row justify-content-center align-items-center mx-5">
+                <div class="col-lg-4 col-12 mb-3">
+                    <div class="card bg-primary">
+                        <img src="/asset/img/portofolio.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-title text-white fs-6 text-center fw-semibold">Portofolio</p>
+                            <p class="card-title text-dark text-center">Bootstrap 5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12 mb-3">
+                    <div class="card bg-primary">
+                        <img src="/asset/img/majelis.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-title text-white fs-6 text-center fw-semibold">Website Organisasi</p>
+                            <p class="card-title text-dark text-center">Bootstrap 5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12 mb-3">
+                    <div class="card bg-primary">
+                        <img src="/asset/img/backend.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-title text-white fs-6 text-center fw-semibold">Sistem Manajemen Keuangan</p>
+                            <p class="card-title text-dark text-center">Bootstrap 5 | Laravel 9</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact my-5" id="contact">
+        <div class="container py-5">
+            <div class="row">
+                <div class="text-center fw-bold text-primary text-uppercase fs-2">Contact</div>
+                <div class="text-center fw-normal text-capitalize mb-5">Get in touch</div>
+            </div>
+            <div class="row justify-content-center align-items-center mx-5">
+                <div class="col-lg-8 col-12">
+                    <form action="">
+                        <div class="form-floating mb-3">
+                            <input type="name" class="form-control" id="name" placeholder="name@example.com">
+                            <label for="name" class="text-secondary">Nama lengkap</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                            <label for="email" class="text-secondary">Email aktif</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="pesan" style="height: 100px"></textarea>
+                            <label for="pesan" class="text-secondary">Pesan</label>
+                        </div>
+                        <button class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="text-center py-4 ">
+        Made with <i class="bi bi-heart-fill text-danger"></i> by <a href=""
+            class="text-primary fw-bold text-decoration-none">Thoyiburrohman</a>
+    </footer>
+@endsection
+@push('scripts')
+@endpush
