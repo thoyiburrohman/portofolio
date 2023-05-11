@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('frontend.index');
 })->name('index');
+Route::get('/shop', function () {
+    return view('frontend.store.index');
+})->name('shop');
 
 
 // Projects

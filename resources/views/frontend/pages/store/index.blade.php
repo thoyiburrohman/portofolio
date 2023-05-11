@@ -147,6 +147,7 @@
         // $(document).ready(function() {
 
         $('#btnBuy').click(function() {
+            var id = $('#id').val();
             var nameProduct = $('#nameProducts').text();
             var priceProduct = $('#valPrice').data('price');
             $('#childCheckout').append(`<div class="row">
