@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
+
+use App\Models\Project;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +18,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('frontend.pages.index');
+    $data = [
+        'projects' => Project::all(),
+    ];
+    return view('frontend.pages.index', $data);
 })->name('index');
 Route::get('/shop', function () {
     return view('frontend.store.index');
@@ -27,3 +33,6 @@ Route::resource('/project', ProjectController::class)->except('destroy');
 Route::get('/project/{project}/delete', [ProjectController::class, 'destroy'])->name('project.delete');
 Route::post('/project/{project}', [ProjectController::class, 'updateStatus'])->name('project.status');
 Route::get('/project/{project}/data', [ProjectController::class, 'data'])->name('project.data');
+
+// Message
+Route::resource('/message', MessageController::class)->except('destroy');

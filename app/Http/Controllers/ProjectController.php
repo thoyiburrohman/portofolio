@@ -34,13 +34,14 @@ class ProjectController extends Controller
     {
         $store = $request->validate([
             'name' => 'required',
-            'category' => 'required',
+            'tech' => 'required',
             'client' => 'required',
             'revenue' => 'required',
             'deadline' => 'required',
-            'feature' => 'required',
         ]);
-
+        if ($request->image) {
+            $store['image'] = $request->file('image')->store('project_image');
+        }
         $store['status'] = 'New';
         // dd($store);
         Project::create($store);

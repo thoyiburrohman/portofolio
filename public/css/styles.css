@@ -1,16 +1,22 @@
 [data-bs-theme="dark"] {
   --bs-body-bg: #111827;
   --bs-body-bg-rgb: 17, 24, 39;
-  --bs-primary: #0891b2;
+  --bs-primary: #0891b2!important;
   --bs-primary-rgb: 8, 145, 178;
 }
 
 [data-bs-theme="light"] {
   --bs-body-bg: #fff;
   --bs-primary: #0891b2;
+  --bs-primary-rgb: rgb(8, 145, 178);
+  --bs-border-color: #0891b2!important;
 }
 body {
   font-family: "Inter", sans-serif;
+}
+
+.form-control {
+  border: var(--bs-border-width) solid var(--bs-border-color);
 }
 
 .btn-primary {
@@ -42,7 +48,7 @@ body {
   font-family: "El Messiri", sans-serif;
 }
 .bg-primary {
-  background: var(--bs-primary) !important;
+  background-color: var(--bs-primary) !important;
 }
 .navbar .btn-primary {
   background: transparent !important;

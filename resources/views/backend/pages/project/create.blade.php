@@ -1,6 +1,7 @@
 @extends('backend.layouts.app')
 @section('title', 'New Project')
 @push('styles')
+    <link href="{{ asset('libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
 @endpush
 @section('content')
     <div class="page-content">
@@ -32,7 +33,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('project.store') }}" method="post">
+                                <form action="{{ route('project.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row mb-3">
                                         <div class="col-lg-6 col-12">
@@ -41,9 +42,24 @@
                                                 placeholder="Name Project" id="name" value="{{ old('name') }}">
                                         </div>
                                         <div class="col-lg-6 col-12">
-                                            <label for="category" class="form-label">Project Category</label>
-                                            <input class="form-control" type="text" name="category"
-                                                placeholder="Project Category" id="category" value="{{ old('category') }}">
+                                            <label for="tech" class="form-label">Multiple Select</label>
+                                            <select class="select2 form-control select2-multiple" multiple="multiple"
+                                                id="tech" name="tech[]" data-placeholder="Choose ...">
+                                                <optgroup label="Front End">
+                                                    <option value="HTML">HTML</option>
+                                                    <option value="CSS">CSS</option>
+                                                    <option value="Bootstrap 5">Bootstrap 5</option>
+                                                    <option value="TailwindCss">TailwindCss</option>
+                                                </optgroup>
+                                                <optgroup label="Back End">
+                                                    <option value="Codeigniter 4">Codeigniter 4</option>
+                                                    <option value="Laravel 10">Laravel 10</option>
+                                                </optgroup>
+                                                <optgroup label="Other">
+                                                    <option value="GSAP">GSAP</option>
+                                                    <option value="Animate.CSS">Animate.CSS</option>
+                                                </optgroup>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -63,21 +79,14 @@
                                                 value="{{ old('deadline') }}">
                                         </div>
                                     </div>
-                                    <div class="row ">
+                                    <div class="row mb-3">
                                         <div class="col-12">
-                                            <div class="float-end">
-                                                <button type="button" id="addFeature" class="btn btn-success ">Add
-                                                    Feature</button>
-                                                <button type="button" id="removeFeature" class="btn btn-danger ">Remove
-                                                    Feature</button>
-                                            </div>
+                                            <label for="image" class="form-label">Image</label>
+                                            <input type="file" name="image" class="form-control" id="image"
+                                                onchange="previewImg()">
                                         </div>
-                                    </div>
-                                    <div class="row mb-3" id="feature">
-                                        <div class="col-12 mb-2" id="childFeature">
-                                            <label for="feature" class="form-label">Feature</label>
-                                            <input class="form-control" type="text" name="feature[]" placeholder="CRUD"
-                                                id="feature" value="{{ old('feature') }}">
+                                        <div class="col-12">
+                                            <img class="mt-3 preview col-12" src="" alt="">
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Save</button>
@@ -94,16 +103,19 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('libs/select2/js/select2.min.js') }}"></script>
     <script>
-        $('#addFeature').click(function() {
-            $('#feature').append(` <div class="col-12 mb-2" id="childFeature">
-                <label for="feature" class="form-label">Feature</label>
-                                            <input class="form-control" type="text" name="feature[]" placeholder="CRUD"
-                                                id="feature" value="{{ old('feature') }}">
-                                        </div>`);
-        });
-        $('#removeFeature').click(function() {
-            $('#childFeature').remove();
-        });
+        function previewImg() {
+            const img = document.querySelector('#image');
+            const imgPreview = document.querySelector('.preview');
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(img.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        };
     </script>
+    <script src="{{ asset('js/pages/form-advanced.init.js') }}"></script>
 @endpush

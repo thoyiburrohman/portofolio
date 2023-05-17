@@ -45,7 +45,7 @@
                                     <thead>
                                         <tr>
                                             <th>Name Project</th>
-                                            <th>Category</th>
+                                            <th>Tech</th>
                                             <th>Client</th>
                                             <th>Revenue</th>
                                             <th>Deadline</th>
@@ -57,7 +57,7 @@
                                         @foreach ($project as $item)
                                             <tr>
                                                 <td>{{ $item->name }}</td>
-                                                <td>{{ $item->category }}</td>
+                                                <td>{{ implode(' | ', $item->tech) }}</td>
                                                 <td>{{ $item->client }}</td>
                                                 <td>{{ $item->revenue }}</td>
                                                 <td>{{ $item->deadline }}</td>
@@ -101,43 +101,53 @@
         </div> <!-- container-fluid -->
     </div>
     <!-- End Page-content -->
-    <div class="modal fade modal-status" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title mt-0">Edit Status</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+    @if ($project)
+        <div class="modal fade modal-status" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title mt-0">Edit Status</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="edit-form" action="{{ route('project.status', [$item->id]) }}" method="post">
-                        @csrf
-                        <div class="row mb-3">
-                            <input class="form-control" hidden name="id" type="text" id="project-id">
-                            <div class="col-12">
-                                <label for="project-name" class="form-label">Name Project</label>
-                                <input class="form-control" readonly type="text" id="project-name">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="edit-form" action="
+                    {{ route('project.status', [$item->id]) }}"
+                            method="post">
+                            @csrf
+                            <div class="row mb-3">
+                                <input class="form-control" hidden name="id" type="text" id="project-id">
+                                <div class="col-12">
+                                    <label for="project-name" class="form-label">Name Project</label>
+                                    <input class="form-control" readonly type="text" id="project-name">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-12">
-                                <label for="project-status" class="form-label">Name Project</label>
-                                <select class="form-control select2" name="status" id="project-status">
-                                    <option>== Pilih Status == </option>
-                                    <option value="New">New</option>
-                                    <option value="Progress">Progress</option>
-                                    <option value="Done">Done</option>
-                                </select>
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <label for="project-status" class="form-label">Name Project</label>
+                                    <select class="form-control select2" name="status" id="project-status">
+                                        <option>== Pilih Status == </option>
+                                        <option {{ $item->status == 'New' ? 'selected' : '' }} value="New">New</option>
+                                        <option {{ $item->status == 'Progress' ? 'selected' : '' }} value="Progress">
+                                            Progress
+                                        </option>
+                                        <option {{ $item->status == 'Done' ? 'selected' : '' }} value="Done">Done
+                                        </option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
 
-                    </form>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    @else
+        ''
+    @endif
+
 @endsection
 
 @push('scripts')
@@ -160,8 +170,9 @@
                 url: '/project/' + id + '/data',
                 type: 'GET',
                 success: function(data) {
-                    $('#project-id').val(data.project.id);
-                    $('#project-name').val(data.project.name);
+                    console.log(data);
+                    $('#project-id').val(data.projects.id);
+                    $('#project-name').val(data.projects.name);
                     // Set form input fields based on data
                     // ...
                     $('.modal-status').modal('show');

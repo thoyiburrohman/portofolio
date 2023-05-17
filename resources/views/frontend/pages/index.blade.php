@@ -12,19 +12,19 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase fw-semibold">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ route('index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Skill</a>
+                        <a class="nav-link" href="#skills">Skill</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Projcect</a>
+                        <a class="nav-link" href="#projects">Projcect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item">
                         <div class="dropdown dropdown-end">
@@ -36,14 +36,14 @@
                                 <li>
                                     <button class="dropdown-item d-flex justify-content-lg-center align-items-center"
                                         type="button" data-bs-theme-value="dark">
-                                        <i class="bi bi-moon-stars-fill me-2"></i>
+                                        <i class="mdi mdi-moon-waning-crescent me-2"></i>
                                         Dark
                                     </button>
                                 </li>
                                 <li>
                                     <button class="dropdown-item d-flex justify-content-lg-center align-items-center"
                                         type="button" data-bs-theme-value="light">
-                                        <i class="bi bi-sun-fill me-2"></i> Light
+                                        <i class="mdi mdi-white-balance-sunny me-2"></i> Light
                                     </button>
                                 </li>
                             </ul>
@@ -59,32 +59,29 @@
     <section class="hero">
         <div class="container p-5">
             <div class="row justify-content-center align-items-center ">
-                <div class="col-lg-6 px-4 d-flex justify-content-center">
-                    <div class="home-text  text-lg-start text-center">
+                <div class="col-lg-6 px-4 d-flex justify-content-lg-start justify-content-center">
+                    <div class="home-text text-lg-start text-center">
                         <h5 class="">Official site
                         </h5>
                         <h1 class="title text-uppercase fw-bold mt-3 mb-2 text-primary">thoyiburrohman</h1>
-                        <h5 class="mb-3">Employe & Freelancer</h5>
+                        <h5 class="mb-3">Employee & Freelancer</h5>
                         <a href="https/wa.me/+6281285247694" class="btn btn-primary text-capitalize me-2">Hire Me</a>
                         <!-- <a href="/download-cv"class="btn btn-outline-primary text-capitalize">Download CV</a> -->
-                        <div class="social justify-content-lg-start justify-content-center mt-3">
-                            <div class="social-item">
-                                <a href="https://facebook.com/thoyiburrohman"><i
-                                        class="uil uil-facebook-f text-primary"></i></a>
-                            </div>
-                            <div class="social-item">
-                                <a href="https://instagram.com/thoyiburrohman"><i
-                                        class="uil uil-instagram text-primary"></i></a>
-                            </div>
-                            <div class="social-item">
-                                <a href="https://twitter.com/thoyiburrohman"><i
-                                        class="uil uil-twitter text-primary"></i></a>
-                            </div>
+                        <div class="d-flex justify-content-lg-start justify-content-center mt-3">
+                            <a
+                                class="border border-2 px-2 border-primary me-2 fs-4 rounded-2 href="https://facebook.com/thoyiburrohman"><i
+                                    class="mdi mdi-facebook text-primary"></i></a>
+                            <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2"
+                                href="https://instagram.com/thoyiburrohman"><i
+                                    class="mdi mdi-instagram text-primary"></i></a>
+                            <a
+                                class="border border-2 px-2 border-primary me-2 fs-4 rounded-2 href="https://t.me/thoyiburrohman"><i
+                                    class="mdi mdi-telegram text-primary"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 m-lg-0 mt-5 px-4 text-center">
-                    <img src="/asset/img/profile-1.png" alt="">
+                <div class="col-lg-6 m-lg-0 mt-5 px-4 text-end">
+                    <img src="{{ asset('images/home/profile-1.png') }}" alt="">
                 </div>
             </div>
         </div>
@@ -97,8 +94,8 @@
                 <div class="text-center fw-normal text-capitalize mb-5">my intro</div>
             </div>
             <div class="row justify-content-center align-items-center mb-4">
-                <div class="col-lg-5 text-center col-12 mb-lg-0 mb-4">
-                    <img src="/asset/img/profile.png" alt="">
+                <div class="col-lg-5 text-lg-start text-center col-12 mb-lg-0 mb-4">
+                    <img src="{{ asset('images/home/profile.png') }}" alt="">
                 </div>
                 <div class="col-lg-7 col-12">
                     <div class="row justify-content-center align-content-center ">
@@ -106,10 +103,10 @@
                             <div class="card bg-primary">
                                 <div class="card-body">
                                     <div class="icon-item text-center text-white">
-                                        <i class="bi bi-award"></i>
+                                        <i class="fas fa-award"></i>
                                     </div>
                                     <div class="about-title text-center text-white mb-1 text-capitalize">
-                                        <span>experience</span>
+                                        <span>Experience</span>
                                     </div>
                                     <div class="about-subtitle text-center text-capitalize">
                                         <span>1+ Years</span>
@@ -121,13 +118,13 @@
                             <div class="card bg-primary">
                                 <div class="card-body">
                                     <div class="icon-item text-center text-white">
-                                        <i class="bi bi-bag"></i>
+                                        <i class="fas fa-suitcase"></i>
                                     </div>
                                     <div class="about-title text-center text-white mb-1 text-capitalize">
-                                        <span>project</span>
+                                        <span>Project</span>
                                     </div>
                                     <div class="about-subtitle text-center text-capitalize">
-                                        <span>1+ project</span>
+                                        <span>3+ project</span>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +133,7 @@
                             <div class="card bg-primary">
                                 <div class="card-body">
                                     <div class="icon-item text-center text-white">
-                                        <i class="bi bi-headphones"></i>
+                                        <i class="fas fa-headphones"></i>
                                     </div>
                                     <div class="about-title text-center text-white mb-1 text-capitalize">
                                         <span>Support</span>
@@ -191,9 +188,7 @@
                                         <li class="nav-link">
                                             <i class="uil uil-check-circle me-2"></i><span>Bootstrap</span>
                                         </li>
-                                        <li class="nav-link">
-                                            <i class="uil uil-check-circle me-2"></i><span>TailwindCSS</span>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -271,33 +266,17 @@
                 <div class="text-center fw-normal text-capitalize mb-5">My recent work</div>
             </div>
             <div class="row justify-content-center align-items-center mx-5">
-                <div class="col-lg-4 col-12 mb-3">
-                    <div class="card bg-primary">
-                        <img src="/asset/img/portofolio.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title text-white fs-6 text-center fw-semibold">Portofolio</p>
-                            <p class="card-title text-dark text-center">Bootstrap 5</p>
+                @foreach ($projects as $item)
+                    <div class="col-lg-4 col-12 mb-3">
+                        <div class="card bg-primary">
+                            <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-title text-white fs-6 text-center fw-semibold">{{ $item->name }}</p>
+                                <p class="card-title text-dark text-center">{{ implode(' | ', $item->tech) }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-12 mb-3">
-                    <div class="card bg-primary">
-                        <img src="/asset/img/majelis.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title text-white fs-6 text-center fw-semibold">Website Organisasi</p>
-                            <p class="card-title text-dark text-center">Bootstrap 5</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-12 mb-3">
-                    <div class="card bg-primary">
-                        <img src="/asset/img/backend.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title text-white fs-6 text-center fw-semibold">Sistem Manajemen Keuangan</p>
-                            <p class="card-title text-dark text-center">Bootstrap 5 | Laravel 9</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -309,27 +288,36 @@
             </div>
             <div class="row justify-content-center align-items-center mx-5">
                 <div class="col-lg-8 col-12">
-                    <form action="">
+                    <form action="{{ route('message.store') }}" method="POST" id="form-contact">
+                        @csrf
                         <div class="form-floating mb-3">
-                            <input type="name" class="form-control" id="name" placeholder="name@example.com">
+                            <input type="name" class="form-control" id="name" name="name"
+                                placeholder="John Doe" {{ old('name') }}>
                             <label for="name" class="text-secondary">Nama lengkap</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="johndoe@example.com" {{ old('email') }}>
                             <label for="email" class="text-secondary">Email aktif</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="pesan" style="height: 100px"></textarea>
+                            <input type="number" class="form-control" id="phone" name="phone"
+                                placeholder="0812xxxxxxxxx" {{ old('phone') }}>
+                            <label for="phone" class="text-secondary">No. Whatsapp aktif</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Leave a comment here" name="message" id="pesan"
+                                style="height: 100px" form="form-contact">{{ old('message') }}</textarea>
                             <label for="pesan" class="text-secondary">Pesan</label>
                         </div>
-                        <button class="btn btn-primary">Send</button>
+                        <button type="sumbit" class="btn btn-primary">Send</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
     <footer class="text-center py-4 ">
-        Made with <i class="bi bi-heart-fill text-danger"></i> by <a href=""
+        Made with <i class="fas fa-heart text-danger"></i> by <a href=""
             class="text-primary fw-bold text-decoration-none">Thoyiburrohman</a>
     </footer>
 @endsection
