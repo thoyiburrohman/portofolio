@@ -23,7 +23,8 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="float-end d-none d-sm-block">
-                            <a href="{{ route('project.create') }}" class="btn btn-success">Add Project</a>
+                            <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal"
+                                data-bs-target=".modal-create">Add Project</button>
                         </div>
                     </div>
                 </div>
@@ -80,8 +81,10 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('project.edit', [$item->id]) }}"
-                                                        class="btn btn-sm btn-warning"><i class="fas fa-pen"></i></a>
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-warning waves-effect waves-light btn-edit-project"
+                                                        data-bs-toggle="modal" data-id="{{ $item->id }}"
+                                                        data-bs-target=".modal-edit"><i class="fas fa-pen"></i></button>
                                                     <a href="{{ route('project.delete', [$item->id]) }}"
                                                         class="btn btn-danger btn-sm " id="btn-hapus"><i
                                                             class="fas fa-trash"></i></a>
@@ -101,52 +104,189 @@
         </div> <!-- container-fluid -->
     </div>
     <!-- End Page-content -->
-    @if ($project)
-        <div class="modal fade modal-status" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title mt-0">Edit Status</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="edit-form" action="
+    <div class="modal fade modal-status" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form id="edit-form" action="
                     {{ route('project.status', [$item->id]) }}"
-                            method="post">
-                            @csrf
-                            <div class="row mb-3">
-                                <input class="form-control" hidden name="id" type="text" id="project-id">
-                                <div class="col-12">
-                                    <label for="project-name" class="form-label">Name Project</label>
-                                    <input class="form-control" readonly type="text" id="project-name">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-12">
-                                    <label for="project-status" class="form-label">Name Project</label>
-                                    <select class="form-control select2" name="status" id="project-status">
-                                        <option>== Pilih Status == </option>
-                                        <option {{ $item->status == 'New' ? 'selected' : '' }} value="New">New</option>
-                                        <option {{ $item->status == 'Progress' ? 'selected' : '' }} value="Progress">
-                                            Progress
-                                        </option>
-                                        <option {{ $item->status == 'Done' ? 'selected' : '' }} value="Done">Done
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
+                        method="post">
 
-                        </form>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-    @else
-        ''
-    @endif
+                        @csrf
+                        <div class="row mb-3">
+                            <input class="form-control" hidden name="id" type="text" id="project-id">
+                            <div class="col-12">
+                                <label for="project-name" class="form-label">Name Project</label>
+                                <input class="form-control" readonly type="text" id="project-name">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label for="project-status" class="form-label">Name Project</label>
+                                <select class="form-control select2" name="status" id="project-status">
+                                    <option>== Pilih Status == </option>
+                                    <option {{ $item->status == 'New' ? 'selected' : '' }} value="New">New</option>
+                                    <option {{ $item->status == 'Progress' ? 'selected' : '' }} value="Progress">
+                                        Progress
+                                    </option>
+                                    <option {{ $item->status == 'Done' ? 'selected' : '' }} value="Done">Done
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="modal fade modal-create" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form id="edit-form" action="
+                    {{ route('project.store') }}" method="post"
+                        enctype="multipart/form-data">
+                        @csrf
+                        <div class="row mb-3">
+                            <div class="col-lg-6 col-12">
+                                <label for="name" class="form-label">Name Project</label>
+                                <input class="form-control" type="text" name="name" placeholder="Name Project"
+                                    id="name" value="{{ old('name') }}">
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <label for="tech" class="form-label">Multiple Select</label>
+                                <select class="select2 form-control select2-multiple" multiple="multiple" id="tech"
+                                    name="tech[]" data-placeholder="Choose ...">
+                                    <optgroup label="Front End">
+                                        <option value="HTML">HTML</option>
+                                        <option value="CSS">CSS</option>
+                                        <option value="Bootstrap 5">Bootstrap 5</option>
+                                        <option value="TailwindCss">TailwindCss</option>
+                                    </optgroup>
+                                    <optgroup label="Back End">
+                                        <option value="Codeigniter 4">Codeigniter 4</option>
+                                        <option value="Laravel 10">Laravel 10</option>
+                                    </optgroup>
+                                    <optgroup label="Other">
+                                        <option value="GSAP">GSAP</option>
+                                        <option value="Animate.CSS">Animate.CSS</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-lg-4 col-12">
+                                <label for="client" class="form-label">Client</label>
+                                <input class="form-control" type="text" name="client" placeholder="Client"
+                                    id="client" value="{{ old('client') }}">
+                            </div>
+                            <div class="col-lg-4 col-12">
+                                <label for="revenue" class="form-label">Revenue</label>
+                                <input class="form-control" type="number" name="revenue" placeholder="1000000"
+                                    id="revenue" value="{{ old('revenue') }}">
+                            </div>
+                            <div class="col-lg-4 col-12">
+                                <label for="deadline" class="form-label">Deadline</label>
+                                <input class="form-control" type="date" name="deadline" id="deadline"
+                                    value="{{ old('deadline') }}">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label for="image" class="form-label">Image</label>
+                                <input type="file" name="image" class="form-control" id="image"
+                                    onchange="previewImg()">
+                            </div>
+                            <div class="col-12">
+                                <img class="mt-3 preview col-12" src="" alt="">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary waves-effect"
+                            data-bs-dismiss="modal">Close</button>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="modal fade modal-edit" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form id="edit-form" action="
+                    {{ route('project.update', [$item->id]) }}"
+                        method="post" enctype="multipart/form-data">
+                        @method('put')
+                        @csrf
+                        <input type="hidden" name="status" id="data-status">
+                        <input type="hidden" name="gambarLama" id="data-old-image">
+                        <div class="row mb-3">
+                            <div class="col-lg-6 col-12">
+                                <label for="data-name" class="form-label">Name Project</label>
+                                <input class="form-control" type="text" name="name" placeholder="Name Project"
+                                    id="data-name" value="{{ old('name') }}">
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <label for="data-tech" class="form-label"> Select</label>
+                                <select class="select2 form-control select2-multiple" multiple="multiple" id="data-tech"
+                                    name="tech[]" data-placeholder="Choose ...">
+                                    <optgroup label="Front End">
+                                        <option value="HTML">HTML</option>
+                                        <option value="CSS">CSS</option>
+                                        <option value="Bootstrap 5">Bootstrap 5</option>
+                                        <option value="TailwindCss">TailwindCss</option>
+                                    </optgroup>
+                                    <optgroup label="Back End">
+                                        <option value="Codeigniter 4">Codeigniter 4</option>
+                                        <option value="Laravel 10">Laravel 10</option>
+                                    </optgroup>
+                                    <optgroup label="Other">
+                                        <option value="GSAP">GSAP</option>
+                                        <option value="Animate.CSS">Animate.CSS</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-lg-4 col-12">
+                                <label for="data-client" class="form-label">Client</label>
+                                <input class="form-control" type="text" name="client" placeholder="Client"
+                                    id="data-client" value="{{ old('client') }}">
+                            </div>
+                            <div class="col-lg-4 col-12">
+                                <label for="data-revenue" class="form-label">Revenue</label>
+                                <input class="form-control" type="number" name="revenue" placeholder="1000000"
+                                    id="data-revenue" value="{{ old('revenue') }}">
+                            </div>
+                            <div class="col-lg-4 col-12">
+                                <label for="data-deadline" class="form-label">Deadline</label>
+                                <input class="form-control" type="date" name="deadline" id="data-deadline"
+                                    value="{{ old('deadline') }}">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label for="image" class="form-label">Image</label>
+                                <input type="file" name="image" class="form-control" id="edit-image"
+                                    onchange="previewChangeImg()">
+                            </div>
+                            <div class="col-12">
+                                <img class="mt-3 edit-preview col-12" id="data-image" src="" alt="">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary waves-effect"
+                            data-bs-dismiss="modal">Close</button>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
 
 @endsection
 
@@ -170,8 +310,6 @@
                 url: '/project/' + id + '/data',
                 type: 'GET',
                 success: function(data) {
-                    console.log(data);
-                    $('#project-id').val(data.projects.id);
                     $('#project-name').val(data.projects.name);
                     // Set form input fields based on data
                     // ...
@@ -182,5 +320,53 @@
         $('#project-status').change(function() {
             $('#edit-form').submit();
         });
+    </script>
+    <script>
+        $('.btn-edit-project').click(function() {
+            var id = $(this).data('id');
+            $.ajax({
+                url: '/project/' + id + '/data',
+                type: 'GET',
+                success: function(data) {
+                    $('#data-name').val(data.projects.name);
+                    $('#data-client').val(data.projects.client);
+                    $('#data-revenue').val(data.projects.revenue);
+                    $('#data-deadline').val(data.projects.deadline);
+                    $('#data-image').attr('src', data.projects.image);
+                    $('#data-status').val(data.projects.status);
+                    $('#data-old-image').val(data.projects.image);
+
+                    $.each(data.projects.tech, function(key, value) {
+                        $('#data-tech option[value="' + value + '"]').prop('selected', true);
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        function previewImg() {
+            const img = document.querySelector('#image');
+            const imgPreview = document.querySelector('.preview');
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(img.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        };
+    </script>
+    <script>
+        function previewChangeImg() {
+            const img = document.querySelector('#edit-image');
+            const imgPreview = document.querySelector('.edit-preview');
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(img.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        };
     </script>
 @endpush

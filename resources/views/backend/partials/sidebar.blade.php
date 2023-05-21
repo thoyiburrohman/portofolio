@@ -39,6 +39,15 @@
                         <span>Project</span>
                     </a>
                 </li>
+
+                <li class="menu-title">To Do</li>
+                <li class="{{ Request::is('todo-list', 'todo-list/*') ? 'mm-active' : '' }}">
+                    <a href="{{ route('todo-list.index') }}"
+                        class="waves-effect {{ Request::is('todo-list') ? 'active' : '' }}">
+                        <i class="dripicons-to-do"></i>
+                        <span>To Do List</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- Sidebar -->

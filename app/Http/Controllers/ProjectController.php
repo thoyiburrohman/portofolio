@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -24,7 +25,6 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.project.create');
     }
 
     /**
@@ -43,7 +43,6 @@ class ProjectController extends Controller
             $store['image'] = $request->file('image')->store('project_image');
         }
         $store['status'] = 'New';
-        // dd($store);
         Project::create($store);
         $request->session()->flash('pesan', 'Data berhasil ditambahkan');
         return redirect('/project');
@@ -67,13 +66,6 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        $project = Project::findOrFail($project->id);
-        $data = [
-            'projects' => $project,
-            'feature' => $project->feature,
-        ];
-
-        return view('backend.pages.project.edit', $data);
     }
 
     /**
@@ -81,7 +73,23 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $update = $request->validate([
+            'name' => 'required',
+            'tech' => 'required',
+            'client' => 'required',
+            'revenue' => 'required',
+            'deadline' => 'required',
+        ]);
+        if ($request->image) {
+            if ($request->gambarLama) {
+                Storage::delete($request->gambarLama);
+            }
+            $update['image'] = $request->file('image')->store('project_image');
+        }
+        Project::where('id', $project->id)
+            ->update($update);
+        $request->session()->flash('pesan', 'Data berhasil diubah');
+        return redirect('/project');
     }
     /**
      * Update Status the specified resource in storage.

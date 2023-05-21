@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Project;
@@ -19,7 +20,7 @@ use App\Models\Project;
 
 Route::get('/', function () {
     $data = [
-        'projects' => Project::all(),
+        'projects' => Project::where('status', 'Done')->get(),
     ];
     return view('frontend.pages.index', $data);
 })->name('index');
@@ -36,3 +37,8 @@ Route::get('/project/{project}/data', [ProjectController::class, 'data'])->name(
 
 // Message
 Route::resource('/message', MessageController::class)->except('destroy');
+
+// To Do List
+Route::resource('/todo-list', TodoController::class)->except('destroy');
+Route::post('/todo-list/{todo-list}', [TodoController::class, 'updateStatus'])->name('todo-list.status');
+Route::get('/todo-list/{todo-list}/data', [TodoController::class, 'data'])->name('todo-list.data');
