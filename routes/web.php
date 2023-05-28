@@ -33,17 +33,19 @@ Route::get('/blog', function () {
     return view('frontend.pages.blog.index');
 })->name('blog');
 
+Route::middleware(['auth'])->group(function () {
 
-// Projects
-Route::resource('/project', ProjectController::class)->except('destroy');
-Route::get('/project/{project}/delete', [ProjectController::class, 'destroy'])->name('project.delete');
-Route::post('/project/{project}', [ProjectController::class, 'updateStatus'])->name('project.status');
-Route::get('/project/{project}/data', [ProjectController::class, 'data'])->name('project.data');
+    // Projects
+    Route::resource('/project', ProjectController::class)->except('destroy');
+    Route::get('/project/{project}/delete', [ProjectController::class, 'destroy'])->name('project.delete');
+    Route::post('/project/{project}', [ProjectController::class, 'updateStatus'])->name('project.status');
+    Route::get('/project/{project}/data', [ProjectController::class, 'data'])->name('project.data');
 
-// Message
-Route::resource('/message', MessageController::class)->except('destroy');
+    // Message
+    Route::resource('/message', MessageController::class)->except('destroy');
 
-// To Do List
-Route::resource('/todo', TodoController::class)->except('destroy');
-Route::post('/todo/{todo}', [TodoController::class, 'updateStatus'])->name('todo.status');
-Route::get('/todo/{todo}/data', [TodoController::class, 'data'])->name('todo.data');
+    // To Do List
+    Route::resource('/todo', TodoController::class)->except('destroy');
+    Route::post('/todo/{todo}', [TodoController::class, 'updateStatus'])->name('todo.status');
+    Route::get('/todo/{todo}/data', [TodoController::class, 'data'])->name('todo.data');
+});
