@@ -24,9 +24,14 @@ Route::get('/', function () {
     ];
     return view('frontend.pages.index', $data);
 })->name('index');
+
 Route::get('/shop', function () {
-    return view('frontend.store.index');
+    return view('frontend.pages.store.index');
 })->name('shop');
+
+Route::get('/blog', function () {
+    return view('frontend.pages.blog.index');
+})->name('blog');
 
 
 // Projects
@@ -39,6 +44,6 @@ Route::get('/project/{project}/data', [ProjectController::class, 'data'])->name(
 Route::resource('/message', MessageController::class)->except('destroy');
 
 // To Do List
-Route::resource('/todo-list', TodoController::class)->except('destroy');
-Route::post('/todo-list/{todo-list}', [TodoController::class, 'updateStatus'])->name('todo-list.status');
-Route::get('/todo-list/{todo-list}/data', [TodoController::class, 'data'])->name('todo-list.data');
+Route::resource('/todo', TodoController::class)->except('destroy');
+Route::post('/todo/{todo}', [TodoController::class, 'updateStatus'])->name('todo.status');
+Route::get('/todo/{todo}/data', [TodoController::class, 'data'])->name('todo.data');

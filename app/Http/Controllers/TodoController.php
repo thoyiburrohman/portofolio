@@ -41,7 +41,7 @@ class TodoController extends Controller
         $store['status'] = 'New';
         Todo::create($store);
         $request->session()->flash('pesan', 'Data berhasil ditambahkan');
-        return redirect('/todo-list');
+        return redirect('/todo');
     }
 
     /**
@@ -74,6 +74,13 @@ class TodoController extends Controller
     public function destroy(Todo $todo)
     {
         //
+    }
+
+    public function updateStatus(Request $request, Todo $todo)
+    {
+        Todo::where('id', $todo->id)->update(['status' => $request->status]);
+        $request->session()->flash('pesan', 'Status berhasil diupdate');
+        return redirect('/todo');
     }
 
     public function data(Todo $todo)

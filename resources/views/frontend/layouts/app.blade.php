@@ -9,7 +9,7 @@
     <meta description="My Portofolio" />
 
     <!-- title -->
-    <title>Thoyiburrohman</title>
+    <title>Thoyiburrohman | @yield('title')</title>
 
     <link href="{{ asset('libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- icon -->
@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="{{ asset('libs/bootstrap-5.3/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -59,6 +58,7 @@
             })
         };
     </script>
+    @stack('scripts')
 </body>
 
 </html>

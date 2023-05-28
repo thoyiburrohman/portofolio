@@ -1,6 +1,7 @@
-@extends('frontend.layout.home')
+@extends('frontend.layouts.app')
 @push('style')
 @endpush
+@section('title', 'Home')
 @section('content')
     <nav class="navbar navbar-expand-lg bg-primary sticky-top">
         <div class="container px-lg-5">
@@ -12,16 +13,16 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase fw-semibold">
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ route('index') }}">Home</a>
+                        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skill</a>
+                        <a class="nav-link" href="#skills">Skills</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projcect</a>
+                        <a class="nav-link" href="#projects">Projects</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -56,7 +57,7 @@
     <!-- Navbar End -->
 
     <!-- hero -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container p-5">
             <div class="row justify-content-center align-items-center ">
                 <div class="col-lg-6 px-4 d-flex justify-content-lg-start justify-content-center">
@@ -65,18 +66,17 @@
                         </h5>
                         <h1 class="title text-uppercase fw-bold mt-3 mb-2 text-primary">thoyiburrohman</h1>
                         <h5 class="mb-3">Employee & Freelancer</h5>
-                        <a href="https/wa.me/+6281285247694" class="btn btn-primary text-capitalize me-2">Hire Me</a>
+                        <a target="_blank" href="https/wa.me/+6281285247694"
+                            class="btn btn-primary text-capitalize me-2">Hire Me</a>
                         <!-- <a href="/download-cv"class="btn btn-outline-primary text-capitalize">Download CV</a> -->
                         <div class="d-flex justify-content-lg-start justify-content-center mt-3">
-                            <a
-                                class="border border-2 px-2 border-primary me-2 fs-4 rounded-2 href="https://facebook.com/thoyiburrohman"><i
-                                    class="mdi mdi-facebook text-primary"></i></a>
-                            <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2"
+                            <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2" target="_blank"
+                                href="https://facebook.com/thoyiburrohman"><i class="mdi mdi-facebook text-primary"></i></a>
+                            <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2" target="_blank"
                                 href="https://instagram.com/thoyiburrohman"><i
                                     class="mdi mdi-instagram text-primary"></i></a>
-                            <a
-                                class="border border-2 px-2 border-primary me-2 fs-4 rounded-2 href="https://t.me/thoyiburrohman"><i
-                                    class="mdi mdi-telegram text-primary"></i></a>
+                            <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2" target="_blank"
+                                href="https://t.me/thoyiburrohman"><i class="mdi mdi-telegram text-primary"></i></a>
                         </div>
                     </div>
                 </div>
@@ -91,13 +91,16 @@
         <div class="container py-5">
             <div class="row">
                 <div class="text-center fw-bold text-primary text-uppercase fs-2">About</div>
-                <div class="text-center fw-normal text-capitalize mb-5">my intro</div>
+                <div class="text-center fw-normal text-capitalize mb-5">Tentang Saya</div>
             </div>
             <div class="row justify-content-center align-items-center mb-4">
                 <div class="col-lg-5 text-lg-start text-center col-12 mb-lg-0 mb-4">
                     <img src="{{ asset('images/home/profile.png') }}" alt="">
                 </div>
                 <div class="col-lg-7 col-12">
+                    <p class="lead">Saya seorang karyawan disalah satu perusahaan telekomunikasi di Indonesia,
+                        dan saya senang dalam pengembangan diri dalam bidang teknologi digital seperti coding dengan bahasa
+                        pemrograman framework laravel. </p>
                     <div class="row justify-content-center align-content-center ">
                         <div class="col-lg-4 col-7 mb-3">
                             <div class="card bg-primary">
@@ -109,7 +112,7 @@
                                         <span>Experience</span>
                                     </div>
                                     <div class="about-subtitle text-center text-capitalize">
-                                        <span>1+ Years</span>
+                                        <span>2+ Years</span>
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +154,8 @@
                         </div>
                     </div>
                     <div class="link-to text-center text-lg-start">
-                        <a href="https/wa.me/+6281285247694" class="btn btn-primary text-capitalize me-2">Hire Me</a>
+                        <a target="_blank" href="https/wa.me/+6281285247694"
+                            class="btn btn-primary text-capitalize me-2">Hire Me</a>
 
                         <!-- <a href="/download-cv"class="btn btn-outline-primary text-capitalize">Download CV</a> -->
                     </div>
@@ -161,8 +165,8 @@
     <section class="skills my-5" id="skills">
         <div class="container py-5">
             <div class="row">
-                <div class="text-center fw-bold text-primary text-uppercase fs-2">skills</div>
-                <div class="text-center fw-normal text-capitalize fs-5 mb-5">My Technical</div>
+                <div class="text-center fw-bold text-primary text-uppercase fs-2">Skills</div>
+                <div class="text-center fw-normal text-capitalize fs-5 mb-5">Keterampilan Saya</div>
             </div>
             <div class="row justify-content-center align-items-center mx-2">
                 <div class="col-lg-6 col-12 mb-4">
@@ -262,17 +266,18 @@
     <section class="projects" id="projects">
         <div class="container py-5">
             <div class="row">
-                <div class="text-center fw-bold text-primary text-uppercase fs-2">project</div>
-                <div class="text-center fw-normal text-capitalize mb-5">My recent work</div>
+                <div class="text-center fw-bold text-primary text-uppercase fs-2">projects</div>
+                <div class="text-center fw-normal text-capitalize mb-5">Project terbaru</div>
             </div>
             <div class="row justify-content-center align-items-center mx-5">
                 @foreach ($projects as $item)
                     <div class="col-lg-4 col-12 mb-3">
-                        <div class="card bg-primary">
-                            <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top" alt="...">
+                        <div class="card border border-0">
+                            <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top shadow-lg"
+                                alt="{{ $item->name }}">
                             <div class="card-body">
-                                <p class="card-title text-white fs-6 text-center fw-semibold">{{ $item->name }}</p>
-                                <p class="card-title text-dark text-center">{{ implode(' | ', $item->tech) }}</p>
+                                <p class="card-title text-primary fs-5  fw-semibold">{{ $item->name }}</p>
+                                <p class="card-title text-secondary ">{{ implode(' | ', $item->tech) }}</p>
                             </div>
                         </div>
                     </div>
@@ -284,7 +289,7 @@
         <div class="container py-5">
             <div class="row">
                 <div class="text-center fw-bold text-primary text-uppercase fs-2">Contact</div>
-                <div class="text-center fw-normal text-capitalize mb-5">Get in touch</div>
+                <div class="text-center fw-normal text-capitalize mb-5">Hubungi Saya</div>
             </div>
             <div class="row justify-content-center align-items-center mx-5">
                 <div class="col-lg-8 col-12">
@@ -322,4 +327,29 @@
     </footer>
 @endsection
 @push('scripts')
+    <script>
+        $('.nav-link').click(function() {
+            $(this).addClass('active').siblings.removeClass('active')
+        });
+    </script>
+    <script>
+        let sections = document.querySelectorAll('section');
+        let navLinks = document.querySelectorAll('.nav-link');
+
+        window.onscroll = () => {
+            sections.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 150;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(links => {
+                        links.classList.remove('active');
+                        document.querySelector('.nav-link[href*=' + id + ']').classList.add('active');
+                    });
+                };
+            });
+        };
+    </script>
 @endpush

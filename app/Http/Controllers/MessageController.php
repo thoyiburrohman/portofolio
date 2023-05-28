@@ -36,7 +36,7 @@ class MessageController extends Controller
         ]);
         Message::create($store);
         $request->session()->flash('pesan', 'Pesan anda berhasil dikirim');
-        return back();
+        return redirect('/#contact');
     }
 
     /**

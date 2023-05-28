@@ -94,14 +94,18 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <form id="edit-form" action="
-                {{ route('todo-list.status', [$item->id]) }}"
-                        method="post">
+                {{ route('todo.status', [$item->id]) }}" method="post">
 
                         @csrf
                         <div class="row mb-3">
-                            <input class="form-control" hidden name="id" type="text" id="project-id">
                             <div class="col-12">
-                                <label for="project-name" class="form-label">Name Project</label>
+                                <label for="project-id" class="form-label">ID Project</label>
+                                <input class="form-control" readonly type="text" id="project-id">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label for="project-name" class="form-label">Name Task</label>
                                 <input class="form-control" readonly type="text" id="project-name">
                             </div>
                         </div>
@@ -130,7 +134,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form action="{{ route('todo-list.store') }}" method="post">
+                    <form action="{{ route('todo.store') }}" method="post">
                         @csrf
                         <div class="row mb-3">
                             <div class="col-12">
@@ -181,12 +185,11 @@
         $('.btn-edit-status').click(function() {
             var id = $(this).data('id');
             $.ajax({
-                url: '/todo-list/' + id + '/data',
+                url: '/todo/' + id + '/data',
                 type: 'GET',
                 success: function(data) {
-                    console.log(data);
-                    $('#project-id').val(data.projects.id);
-                    $('#project-name').val(data.projects.name);
+                    $('#project-id').val(data.todos.project_id);
+                    $('#project-name').val(data.todos.name);
                     // Set form input fields based on data
                     // ...
                     $('.modal-status').modal('show');

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Inter&display=swap');
+
 [data-bs-theme="dark"] {
   --bs-body-bg: #111827;
   --bs-body-bg-rgb: 17, 24, 39;
@@ -71,6 +73,11 @@ body {
   .text-primary {
     color: var(--bs-primary) !important;
   }
+}
+
+.hero {
+  height: 80vh;
+  padding:5rem 0 0 0;
 }
 .hero img {
   width: 300px;
