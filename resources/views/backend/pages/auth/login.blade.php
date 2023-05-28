@@ -25,16 +25,18 @@
                             </div>
 
 
-                            <form class="form-horizontal mt-4 pt-2" action="{{ route('auth.login') }}">
-
+                            <form class="form-horizontal mt-4 pt-2" action="{{ route('login-authentication') }}"
+                                method="post">
+                                @csrf
                                 <div class="mb-3">
-                                    <label for="username">Username</label>
-                                    <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                    <label for="Eemail">Email</label>
+                                    <input type="text" class="form-control" name="email" id="email"
+                                        placeholder="Enter Email">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="userpassword">Password</label>
-                                    <input type="password" class="form-control" id="userpassword"
+                                    <input type="password" class="form-control" name="password" id="userpassword"
                                         placeholder="Enter password">
                                 </div>
 

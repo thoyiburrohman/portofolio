@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TodoController;
@@ -49,3 +50,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/todo/{todo}', [TodoController::class, 'updateStatus'])->name('todo.status');
     Route::get('/todo/{todo}/data', [TodoController::class, 'data'])->name('todo.data');
 });
+
+Route::get('/login', [AuthController::class, 'login'])->name('login-page');
+Route::post('/login', [AuthController::class, 'authenticate'])->name('login-authentication');
