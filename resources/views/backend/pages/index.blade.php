@@ -125,78 +125,43 @@
                                     <table class="table table-centered table-nowrap mb-0">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Project</th>
-                                                <th>Feature</th>
-                                                <th>Price</th>
-                                                <th>Invoice</th>
+                                                <th>Name Project</th>
+                                                <th>Tech</th>
+                                                <th>Client</th>
+                                                <th>Revenue</th>
+                                                <th>Deadline</th>
                                                 <th>Status</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>#2356</td>
-                                                <td><img src="assets/images/product/img-7.png" width="42" class="me-3"
-                                                        alt="">Green Chair</td>
-                                                <td>Kenneth Gittens</td>
-                                                <td>$200.00</td>
-                                                <td>42</td>
-                                                <td><span
-                                                        class="badge badge-pill badge-soft-primary font-size-13">Pending</span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>#2564</td>
-                                                <td><img src="assets/images/product/img-8.png" width="42" class="me-3"
-                                                        alt="">Office Chair</td>
-                                                <td>Alfred Gordon</td>
-                                                <td>$242.00</td>
-                                                <td>54</td>
-                                                <td><span
-                                                        class="badge badge-pill badge-soft-success font-size-13">Active</span>
-                                                </td>
-                                            </tr>
-
-
-
-                                            <tr>
-                                                <td>#2125</td>
-                                                <td><img src="assets/images/product/img-10.png" width="42"
-                                                        class="me-3" alt="">Gray Chair</td>
-                                                <td>Keena Reyes</td>
-                                                <td>$320.00</td>
-                                                <td>65</td>
-                                                <td><span
-                                                        class="badge badge-pill badge-soft-success font-size-13">Active</span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>#8587</td>
-                                                <td><img src="assets/images/product/img-11.png" width="42"
-                                                        class="me-3" alt="">Steel Chair</td>
-                                                <td>Timothy Zuniga</td>
-                                                <td>$342.00</td>
-                                                <td>52</td>
-                                                <td><span
-                                                        class="badge badge-pill badge-soft-primary font-size-13">Pending</span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>#2354</td>
-                                                <td><img src="assets/images/product/img-12.png" width="42"
-                                                        class="me-3" alt="">Home Chair</td>
-                                                <td>Joann Wiliams</td>
-                                                <td>$320.00</td>
-                                                <td>25</td>
-                                                <td><span
-                                                        class="badge badge-pill badge-soft-primary font-size-13">Pending</span>
-                                                </td>
-                                            </tr>
-
-
+                                            @foreach ($projects as $item)
+                                                <tr>
+                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ implode(' | ', $item->tech) }}</td>
+                                                    <td>{{ $item->client }}</td>
+                                                    <td>{{ $item->revenue }}</td>
+                                                    <td>{{ $item->deadline }}</td>
+                                                    <td>
+                                                        @if ($item->status == 'New')
+                                                            <span class="badge bg-info">{{ $item->status }}</span>
+                                                        @elseif ($item->status == 'Progress')
+                                                            <span class="badge bg-warning">{{ $item->status }}</span>
+                                                        @else
+                                                            <span class="badge bg-success">{{ $item->status }}</span>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        <button type="button"
+                                                            class="btn btn-sm btn-warning waves-effect waves-light btn-edit-project"
+                                                            data-bs-toggle="modal" data-id="{{ $item->id }}"
+                                                            data-bs-target=".modal-edit"><i class="fas fa-pen"></i></button>
+                                                        <a href="{{ route('project.delete', [$item->id]) }}"
+                                                            class="btn btn-danger btn-sm " id="btn-hapus"><i
+                                                                class="fas fa-trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

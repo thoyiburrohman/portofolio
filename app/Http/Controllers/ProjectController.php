@@ -96,6 +96,7 @@ class ProjectController extends Controller
      */
     public function updateStatus(Request $request, Project $project)
     {
+        // dd($request->all());
         Project::where('id', $request->id)->update(['status' => $request->status]);
         $request->session()->flash('pesan', 'Status berhasil diupdate');
         return redirect('/project');

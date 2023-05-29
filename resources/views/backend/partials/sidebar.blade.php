@@ -24,8 +24,9 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title">Menu</li>
 
-                <li class="{{ Request::is('index') ? 'mm-active' : '' }}">
-                    <a href="{{ route('index') }}" class="waves-effect {{ Request::is('index') ? 'active' : '' }}">
+                <li class="{{ Request::is('dashboard') ? 'mm-active' : '' }}">
+                    <a href="{{ route('dashboard') }}"
+                        class="waves-effect {{ Request::is('dashboard') ? 'active' : '' }}">
                         <i class="dripicons-home"></i>
                         <span>Dashboard</span>
                     </a>
@@ -43,8 +44,16 @@
                 <li class="menu-title">To Do</li>
                 <li class="{{ Request::is('todo', 'todo/*') ? 'mm-active' : '' }}">
                     <a href="{{ route('todo.index') }}" class="waves-effect {{ Request::is('todo') ? 'active' : '' }}">
-                        <i class="dripicons-to-do"></i>
+                        <i class="dripicons-checklist"></i>
                         <span>To Do List</span>
+                    </a>
+                </li>
+                <li class="menu-title">Messages</li>
+                <li class="{{ Request::is('message', 'message/*') ? 'mm-active' : '' }}">
+                    <a href="{{ route('message.index') }}"
+                        class="waves-effect {{ Request::is('message') ? 'active' : '' }}">
+                        <i class="dripicons-message"></i>
+                        <span>Messages</span>
                     </a>
                 </li>
             </ul>

@@ -34,6 +34,13 @@ Route::get('/blog', function () {
     return view('frontend.pages.blog.index');
 })->name('blog');
 
+Route::get('/dashboard', function () {
+    $data = [
+        'projects' => Project::all(),
+    ];
+    return view('backend.pages.index', $data);
+})->name('dashboard');
+
 Route::middleware(['auth'])->group(function () {
 
     // Projects
@@ -44,6 +51,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Message
     Route::resource('/message', MessageController::class)->except('destroy');
+    Route::get('/message/{message}/data', [MessageController::class, 'data'])->name('messages.data');
 
     // To Do List
     Route::resource('/todo', TodoController::class)->except('destroy');

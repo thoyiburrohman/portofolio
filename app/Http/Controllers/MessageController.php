@@ -12,7 +12,11 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'messages' => Message::all(),
+        ];
+
+        return view('backend.pages.messages.index', $data);
     }
 
     /**
@@ -69,5 +73,14 @@ class MessageController extends Controller
     public function destroy(Message $message)
     {
         //
+    }
+
+    public function data(Message $message)
+    {
+        $message = Message::findOrFail($message->id);
+        $data = [
+            'messages' => $message,
+        ];
+        return response()->json($data);
     }
 }

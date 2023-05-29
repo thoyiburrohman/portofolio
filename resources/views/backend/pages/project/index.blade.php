@@ -112,7 +112,6 @@
                     <form id="edit-form" action="
                     {{ route('project.status', [$item->id]) }}"
                         method="post">
-
                         @csrf
                         <div class="row mb-3">
                             <input class="form-control" hidden name="id" type="text" id="project-id">
@@ -310,6 +309,7 @@
                 url: '/project/' + id + '/data',
                 type: 'GET',
                 success: function(data) {
+                    $('#project-id').val(data.projects.id);
                     $('#project-name').val(data.projects.name);
                     // Set form input fields based on data
                     // ...
