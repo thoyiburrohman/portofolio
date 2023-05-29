@@ -2,7 +2,7 @@
 
     <div data-simplebar class="h-100">
 
-
+        {{-- 
         <div class="user-sidebar text-center">
             <div class="dropdown">
                 <div class="user-img">
@@ -14,7 +14,7 @@
                     <span class="font-size-13 text-white-50">Administrator</span>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
 
