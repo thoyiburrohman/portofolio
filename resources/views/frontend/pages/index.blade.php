@@ -74,7 +74,7 @@
                             <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2" target="_blank"
                                 href="https://instagram.com/thoyiburrohman"><i
                                     class="mdi mdi-instagram text-primary"></i></a>
-                            <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2" target="_blank"
+                            <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2"
                                 href="https://t.me/thoyiburrohman"><i class="mdi mdi-telegram text-primary"></i></a>
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                         </div>
                     </div>
                     <div class="link-to text-center text-lg-start">
-                        <a target="_blank" href="#contact" class="btn btn-primary text-capitalize me-2">Hire Me</a>
+                        <a href="#contact" class="btn btn-primary text-capitalize me-2">Hire Me</a>
 
                         <!-- <a href="/download-cv"class="btn btn-outline-primary text-capitalize">Download CV</a> -->
                     </div>
