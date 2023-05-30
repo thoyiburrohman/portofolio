@@ -61,3 +61,4 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/login', [AuthController::class, 'login'])->name('login-page');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('login-authentication');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
