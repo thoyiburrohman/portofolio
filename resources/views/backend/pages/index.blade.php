@@ -48,7 +48,7 @@
                                     </div>
                                     <div class=" d-flex align-items-end flex-column justify-content-center float-end">
                                         <p class="font-size-18 mb-1 mt-1">Project</p>
-                                        <h5 class="font-size-22">0</h5>
+                                        <h5 class="font-size-22">{{ count($projects) }}</h5>
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@
                                     </div>
                                     <div class=" d-flex align-items-end flex-column justify-content-center float-end">
                                         <p class="font-size-18 mb-1 mt-1">Success</p>
-                                        <h5 class="font-size-22">0</h5>
+                                        <h5 class="font-size-22">{{ count($done) }}</h5>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                                     </div>
                                     <div class=" d-flex align-items-end flex-column justify-content-center float-end">
                                         <p class="font-size-18 mb-1 mt-1">Progress</p>
-                                        <h5 class="font-size-22">0</h5>
+                                        <h5 class="font-size-22">{{ count($progress) }}</h5>
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +131,6 @@
                                                 <th>Revenue</th>
                                                 <th>Deadline</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -150,15 +149,6 @@
                                                         @else
                                                             <span class="badge bg-success">{{ $item->status }}</span>
                                                         @endif
-                                                    </td>
-                                                    <td>
-                                                        <button type="button"
-                                                            class="btn btn-sm btn-warning waves-effect waves-light btn-edit-project"
-                                                            data-bs-toggle="modal" data-id="{{ $item->id }}"
-                                                            data-bs-target=".modal-edit"><i class="fas fa-pen"></i></button>
-                                                        <a href="{{ route('project.delete', [$item->id]) }}"
-                                                            class="btn btn-danger btn-sm " id="btn-hapus"><i
-                                                                class="fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach

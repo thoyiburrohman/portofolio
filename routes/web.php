@@ -37,6 +37,8 @@ Route::get('/blog', function () {
 Route::get('/dashboard', function () {
     $data = [
         'projects' => Project::all(),
+        'done' => Project::where('status', 'Done')->get(),
+        'progress' => Project::where('status', 'Progress')->get(),
     ];
     return view('backend.pages.index', $data);
 })->name('dashboard');
