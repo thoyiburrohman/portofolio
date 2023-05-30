@@ -66,7 +66,7 @@
                         </h5>
                         <h1 class="title text-uppercase fw-bold mt-3 mb-2 text-primary">thoyiburrohman</h1>
                         <h5 class="mb-3">Employee & Freelancer</h5>
-                        <a target="_blank" href="#contact" class="btn btn-primary text-capitalize me-2">Hire Me</a>
+                        <a href="#contact" class="btn btn-primary text-capitalize me-2">Hire Me</a>
                         <!-- <a href="/download-cv"class="btn btn-outline-primary text-capitalize">Download CV</a> -->
                         <div class="d-flex justify-content-lg-start justify-content-center mt-3">
                             <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2" target="_blank"
@@ -74,7 +74,7 @@
                             <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2" target="_blank"
                                 href="https://instagram.com/thoyiburrohman"><i
                                     class="mdi mdi-instagram text-primary"></i></a>
-                            <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2"
+                            <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2" target="_blank"
                                 href="https://t.me/thoyiburrohman"><i class="mdi mdi-telegram text-primary"></i></a>
                         </div>
                     </div>
