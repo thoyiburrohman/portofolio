@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="My Admin Template" name="description" />
     <meta content="Thoyiburrohman" name="author" />
+    <meta name="token" content="{{ csrf_token() }}" />
+
     <title>Dashboard | My Admin</title>
 
     <!-- App favicon -->

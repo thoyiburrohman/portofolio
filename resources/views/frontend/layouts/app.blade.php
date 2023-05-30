@@ -5,9 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta author="Thoyiburrohman" />
-    <meta description="My Portofolio" />
+    <meta name="author" content="Thoyiburrohman" />
+    <meta name="description" content="My Portofolio" />
+    <meta name="token" content="{{ csrf_token() }}" />
 
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
     <!-- title -->
     <title>Thoyiburrohman | @yield('title')</title>
 
