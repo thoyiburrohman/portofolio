@@ -69,12 +69,12 @@
                         <a href="#contact" class="btn btn-primary text-capitalize me-2">Hire Me</a>
                         <!-- <a href="/download-cv"class="btn btn-outline-primary text-capitalize">Download CV</a> -->
                         <div class="d-flex justify-content-lg-start justify-content-center mt-3">
-                            <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2" target="_blank"
+                            <a class="icon-social border border-2 px-2 border-primary me-2 fs-4" target="_blank"
                                 href="https://facebook.com/thoyiburrohman"><i class="mdi mdi-facebook text-primary"></i></a>
-                            <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2" target="_blank"
+                            <a class="icon-social border border-2 px-2 border-primary me-2 fs-4" target="_blank"
                                 href="https://instagram.com/thoyiburrohman"><i
                                     class="mdi mdi-instagram text-primary"></i></a>
-                            <a class="border border-2 px-2 border-primary me-2 fs-4 rounded-2" target="_blank"
+                            <a class="icon-social border border-2 px-2 border-primary me-2 fs-4" target="_blank"
                                 href="https://t.me/thoyiburrohman"><i class="mdi mdi-telegram text-primary"></i></a>
                         </div>
                     </div>
@@ -101,13 +101,13 @@
                         dan saya senang dalam pengembangan diri dalam bidang teknologi digital seperti coding dengan bahasa
                         pemrograman framework laravel. </p>
                     <div class="row justify-content-center align-content-center ">
-                        <div class="col-lg-4 col-7 mb-3">
-                            <div class="card bg-primary">
+                        <div class="col-lg-6 col-7 mb-3">
+                            <div class="card">
                                 <div class="card-body">
-                                    <div class="icon-item text-center text-white">
+                                    <div class="icon-item text-center text-primary">
                                         <i class="fas fa-award"></i>
                                     </div>
-                                    <div class="about-title text-center text-white mb-1 text-capitalize">
+                                    <div class="about-title text-center text-primary mb-1 text-capitalize">
                                         <span>Experience</span>
                                     </div>
                                     <div class="about-subtitle text-center text-capitalize">
@@ -116,32 +116,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-7 mb-3">
-                            <div class="card bg-primary">
+                        <div class="col-lg-6 col-7 mb-3">
+                            <div class="card">
                                 <div class="card-body">
-                                    <div class="icon-item text-center text-white">
+                                    <div class="icon-item text-center text-primary">
                                         <i class="fas fa-suitcase"></i>
                                     </div>
-                                    <div class="about-title text-center text-white mb-1 text-capitalize">
+                                    <div class="about-title text-center text-primary mb-1 text-capitalize">
                                         <span>Project</span>
                                     </div>
                                     <div class="about-subtitle text-center text-capitalize">
                                         <span>3+ project</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-7 mb-3">
-                            <div class="card bg-primary">
-                                <div class="card-body">
-                                    <div class="icon-item text-center text-white">
-                                        <i class="fas fa-headphones"></i>
-                                    </div>
-                                    <div class="about-title text-center text-white mb-1 text-capitalize">
-                                        <span>Support</span>
-                                    </div>
-                                    <div class="about-subtitle text-center text-capitalize">
-                                        <span>24/7 Hours</span>
                                     </div>
                                 </div>
                             </div>
@@ -168,11 +153,11 @@
             </div>
             <div class="row justify-content-center align-items-center mx-2">
                 <div class="col-lg-6 col-12 mb-4">
-                    <div class="card bg-primary">
+                    <div class="card">
                         <div class="card-body">
                             <div class="row justify-content-center text-center ">
-                                <div class="text-uppercase fw-semibold text-dark mb-4">Frontend Developer</div>
-                                <div class="col-6 text-white text-start">
+                                <div class="text-uppercase fw-semibold text-primary mb-4">Frontend Developer</div>
+                                <div class="col-6 text-start">
                                     <ul class="nav-item">
                                         <li class="nav-link">
                                             <i class="uil uil-check-circle me-2"></i><span>HTML</span>
@@ -185,7 +170,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-6 text-white text-start">
+                                <div class="col-6 text-start">
                                     <ul class="nav-item">
                                         <li class="nav-link">
                                             <i class="uil uil-check-circle me-2"></i><span>Bootstrap</span>
@@ -198,11 +183,11 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-12 mb-4">
-                    <div class="card bg-primary">
+                    <div class="card">
                         <div class="card-body">
                             <div class="row justify-content-center text-center ">
-                                <div class="text-uppercase fw-semibold text-dark mb-4">Backend Developer</div>
-                                <div class="col-6 text-white text-start">
+                                <div class="text-uppercase fw-semibold text-primary mb-4">Backend Developer</div>
+                                <div class="col-6 text-start">
                                     <ul class="nav-item">
                                         <li class="nav-link">
                                             <i class="uil uil-check-circle me-2"></i><span>PHP</span>
@@ -215,7 +200,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-6 text-white text-start">
+                                <div class="col-6 text-start">
                                     <ul class="nav-item">
                                         <li class="nav-link">
 
@@ -228,14 +213,13 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-12 mb-4">
-                    <div class="card bg-primary">
+                    <div class="card">
                         <div class="card-body">
                             <div class="row justify-content-center text-center ">
-                                <div class="text-uppercase fw-semibold text-dark mb-4">Design</div>
-                                <div class="col-6 text-white text-start">
+                                <div class="text-uppercase fw-semibold text-primary mb-4">Design</div>
+                                <div class="col-6 text-start">
                                     <ul class="nav-item">
                                         <li class="nav-link">
-
                                             <i class="uil uil-check-circle me-2"></i><span>Photoshop</span>
                                         </li>
                                         <li class="nav-link">
@@ -246,7 +230,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-6 text-white text-start">
+                                <div class="col-6 text-start">
                                     <ul class="nav-item">
                                         <li class="nav-link">
 
@@ -269,9 +253,9 @@
             </div>
             <div class="row justify-content-center align-items-center mx-5">
                 @foreach ($projects as $item)
-                    <div class="col-lg-4 col-12 mb-3">
-                        <div class="card border border-0">
-                            <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top shadow-lg"
+                    <div class="card-project col-lg-6 col-12 mb-5">
+                        <div class="card">
+                            <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top"
                                 alt="{{ $item->name }}">
                             <div class="card-body">
                                 <p class="card-title text-primary fs-5  fw-semibold">{{ $item->name }}</p>
@@ -285,36 +269,56 @@
     </section>
     <section class="contact my-5" id="contact">
         <div class="container py-5">
-            <div class="row">
-                <div class="text-center fw-bold text-primary text-uppercase fs-2">Contact</div>
-                <div class="text-center fw-normal text-capitalize mb-5">Hubungi Saya</div>
-            </div>
-            <div class="row justify-content-center align-items-center mx-5">
-                <div class="col-lg-8 col-12">
-                    <form action="{{ route('message.store') }}" method="POST" id="form-contact">
-                        @csrf
-                        <div class="form-floating mb-3">
-                            <input type="name" class="form-control" id="name" name="name"
-                                placeholder="John Doe" {{ old('name') }}>
-                            <label for="name" class="text-secondary">Nama lengkap</label>
+            <div class="card  py-5">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="text-center fw-bold text-primary text-uppercase fs-2">Contact</div>
+                        <div class="text-center fw-normal text-capitalize mb-5">Hubungi Saya</div>
+                    </div>
+                    <div class="row justify-content-center align-items-center mx-5">
+                        <div class="col-lg-8 col-12">
+                            <form id="formContact">
+                                @csrf
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="name" name="name"
+                                        placeholder="John Doe" {{ old('name') }}>
+                                    <label for="name" class="text-secondary">Nama lengkap</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="johndoe@example.com" {{ old('email') }}>
+                                    <label for="email" class="text-secondary">Email aktif</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="phone" name="phone"
+                                        placeholder="0812xxxxxxxxx" {{ old('phone') }}>
+                                    <label for="phone" class="text-secondary">No. Whatsapp aktif</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <textarea class="form-control" placeholder="Leave a comment here" name="message" id="pesan"
+                                        style="height: 100px" form="formContact">{{ old('message') }}</textarea>
+                                    <label for="pesan" class="text-secondary">Pesan</label>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <label for="callback">Ingin dihubungi kembali melalui :
+                                        </label>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" name="callback" type="radio"
+                                                id="callback1" value="email">
+                                            <label class="form-check-label" for="callback1">Email</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" name="callback" type="radio"
+                                                id="callback2" value="whatsapp">
+                                            <label class="form-check-label" for="callback2">Whatsapp</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" id="send-btn" class="btn btn-primary">Send</button>
+                            </form>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="email" name="email"
-                                placeholder="johndoe@example.com" {{ old('email') }}>
-                            <label for="email" class="text-secondary">Email aktif</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="phone" name="phone"
-                                placeholder="0812xxxxxxxxx" {{ old('phone') }}>
-                            <label for="phone" class="text-secondary">No. Whatsapp aktif</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <textarea class="form-control" placeholder="Leave a comment here" name="message" id="pesan"
-                                style="height: 100px" form="form-contact">{{ old('message') }}</textarea>
-                            <label for="pesan" class="text-secondary">Pesan</label>
-                        </div>
-                        <button type="sumbit" class="btn btn-primary">Send</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -325,6 +329,49 @@
     </footer>
 @endsection
 @push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#send-btn').click(function() {
+                var formData = $('#formContact').serialize(); // Mengambil data formulir modal
+                Swal.fire({
+                    title: 'Apakah anda yakin?',
+                    text: "Pesan Akan Dikirim!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: 'var(--bs-primary)',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, kirim!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: 'POST',
+                            url: '{{ route('message.store') }}', // Ganti dengan URL endpoint Anda
+                            data: formData,
+                            success: function(response) {
+                                // Logika setelah berhasil
+                                $('#formContact')[0].reset();
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Success',
+                                    text: 'Pesan anda berhasil dikirim'
+                                })
+
+                            },
+                            error: function(xhr, status, error) {
+                                // Logika jika terjadi kesalahan
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error',
+                                    text: 'Mohon Cek Kembali'
+                                });
+                            }
+                        });
+                    }
+                });
+
+            });
+        });
+    </script>
     <script>
         $('.nav-link').click(function() {
             $(this).addClass('active').siblings.removeClass('active')

@@ -24,18 +24,12 @@
 </head>
 
 <body>
-    @if (session()->has('pesan'))
-        <div id="flash" data-flash="{{ session('pesan') }}">
-        </div>
-    @endif
-    @if (session()->has('error'))
-        <div id="flashError" data-flash="{{ session('error') }}">
-        </div>
-    @endif
+
     @yield('content')
     <!-- script -->
-    <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
-        integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('libs/bootstrap-5.3/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
     <!-- Sweet Alerts js -->
@@ -43,24 +37,7 @@
 
     <!-- Sweet alert init js-->
     <script src="{{ asset('js/pages/sweet-alerts.init.js') }}"></script>
-    <script>
-        var flash = $('#flash').data('flash');
-        if (flash) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Success',
-                text: flash
-            })
-        };
-        var flashError = $('#flashError').data('flash');
-        if (flashError) {
-            Swal.fire({
-                icon: 'warning',
-                title: 'Gagal',
-                text: flashError
-            })
-        };
-    </script>
+
     @stack('scripts')
 </body>
 

@@ -5,7 +5,6 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
-
 use App\Models\Project;
 
 /*
@@ -18,6 +17,7 @@ use App\Models\Project;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 Route::get('/', function () {
     $data = [
@@ -34,16 +34,18 @@ Route::get('/blog', function () {
     return view('frontend.pages.blog.index');
 })->name('blog');
 
-Route::get('/dashboard', function () {
-    $data = [
-        'projects' => Project::all(),
-        'done' => Project::where('status', 'Done')->get(),
-        'progress' => Project::where('status', 'Progress')->get(),
-    ];
-    return view('backend.pages.index', $data);
-})->name('dashboard');
+
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::get('/dashboard', function () {
+        $data = [
+            'projects' => Project::all(),
+            'done' => Project::where('status', 'Done')->get(),
+            'progress' => Project::where('status', 'Progress')->get(),
+        ];
+        return view('backend.pages.index', $data);
+    })->name('dashboard');
 
     // Projects
     Route::resource('/project', ProjectController::class)->except('destroy');
@@ -52,7 +54,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/project/{project}/data', [ProjectController::class, 'data'])->name('project.data');
 
     // Message
-    Route::resource('/message', MessageController::class)->except('destroy');
+    Route::resource('/message', MessageController::class)->except('destroy', 'store');
     Route::get('/message/{message}/data', [MessageController::class, 'data'])->name('messages.data');
 
     // To Do List
@@ -64,3 +66,5 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/login', [AuthController::class, 'login'])->name('login-page');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('login-authentication');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::post('/message', [MessageController::class, 'store'])->name('message.store');
