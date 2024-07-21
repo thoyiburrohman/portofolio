@@ -1,70 +1,19 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\MessageController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\TodoController;
-use Illuminate\Support\Facades\Route;
+use App\Models\General;
+use App\Models\Message;
 use App\Models\Project;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $data = [
-        'projects' => Project::where('status', 'Done')->get(),
+        'setting' => General::where('id', 1)->first(),
+        'projects' => Project::where('status', 'Complete')->get(),
     ];
-    return view('frontend.pages.index', $data);
-})->name('index');
-
-Route::get('/shop', function () {
-    return view('frontend.pages.store.index');
-})->name('shop');
-
-Route::get('/blog', function () {
-    return view('frontend.pages.blog.index');
-})->name('blog');
-
-
-
-Route::middleware(['auth'])->group(function () {
-
-    Route::get('/dashboard', function () {
-        $data = [
-            'projects' => Project::all(),
-            'done' => Project::where('status', 'Done')->get(),
-            'progress' => Project::where('status', 'Progress')->get(),
-        ];
-        return view('backend.pages.index', $data);
-    })->name('dashboard');
-
-    // Projects
-    Route::resource('/project', ProjectController::class)->except('destroy');
-    Route::get('/project/{project}/delete', [ProjectController::class, 'destroy'])->name('project.delete');
-    Route::post('/project/{project}', [ProjectController::class, 'updateStatus'])->name('project.status');
-    Route::get('/project/{project}/data', [ProjectController::class, 'data'])->name('project.data');
-
-    // Message
-    Route::resource('/message', MessageController::class)->except('destroy', 'store');
-    Route::get('/message/{message}/data', [MessageController::class, 'data'])->name('messages.data');
-
-    // To Do List
-    Route::resource('/todo', TodoController::class)->except('destroy');
-    Route::post('/todo/{todo}', [TodoController::class, 'updateStatus'])->name('todo.status');
-    Route::get('/todo/{todo}/data', [TodoController::class, 'data'])->name('todo.data');
+    return view('home', $data);
 });
-
-Route::get('/login', [AuthController::class, 'login'])->name('login-page');
-Route::post('/login', [AuthController::class, 'authenticate'])->name('login-authentication');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
-Route::post('/message', [MessageController::class, 'store'])->name('message.store');
+Route::post('/form-message', function (Request $request) {
+    Message::create($request->all());
+    return response()->json(['success' => 'message berhasil terkirim']);
+})->name('form-message');
