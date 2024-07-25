@@ -11,20 +11,18 @@
     <meta name="token" content="iCXSraO8FpbyIJBuPPdBbn8wvNTfX0kXk2J5l4Vg" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="https://thoyiburrohman.my.id/public/images/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
     <!-- title -->
     <title>{{ $setting->title }}</title>
 
-    <link href="https://thoyiburrohman.my.id/public/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet"
-        type="text/css" />
+    <link href="{{ asset('libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- icon -->
-    <!--<link href="https://thoyiburrohman.my.id/public/css/icons.min.css" rel="stylesheet" type="text/css">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
         integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- style -->
-    <link rel="stylesheet" href="https://thoyiburrohman.my.id/public/libs/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://thoyiburrohman.my.id/public/css/styles.css" />
+    <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
 
 </head>
 
@@ -153,7 +151,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 m-lg-0 mt-5 px-4 text-end">
-                    <img src="https://thoyiburrohman.my.id/public/images/home/profile-1.png" alt="">
+                    <img src="{{ asset('images/home/profile-1.png') }}" alt="">
                 </div>
             </div>
         </div>
@@ -167,7 +165,7 @@
             </div>
             <div class="row justify-content-center align-items-center mb-4">
                 <div class="col-lg-5 text-lg-start text-center col-12 mb-lg-0 mb-4">
-                    <img src="https://thoyiburrohman.my.id/public/images/home/profile.png" alt="">
+                    <img src="{{ asset('images/home/profile.png') }}" alt="">
                 </div>
                 <div class="col-lg-7 col-12">
                     <p class="lead">{{ $setting->bio }} </p>
@@ -388,11 +386,11 @@
     </footer>
     <!-- script -->
 
-    <script src="https://thoyiburrohman.my.id/public/libs/jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://thoyiburrohman.my.id/public/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://thoyiburrohman.my.id/public/js/scripts.js"></script>
+    <script src="{{ asset('libs/jquery.com/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/scripts.js') }}"></script>
     <!-- Sweet Alerts js -->
-    <script src="https://thoyiburrohman.my.id/public/libs/sweetalert2/sweetalert2.min.js"></script>
+    <script src="{{ asset('libs/sweetalert2/sweetalert2.min.js') }}"></script>
 
     <!-- Sweet alert init js-->
 
