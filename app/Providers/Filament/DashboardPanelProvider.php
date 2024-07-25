@@ -24,6 +24,7 @@ class DashboardPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->favicon(asset('images/favicon.ico'))
             ->brandName('Thoyiburrohman')
             ->font('Poppins')
             ->default()
