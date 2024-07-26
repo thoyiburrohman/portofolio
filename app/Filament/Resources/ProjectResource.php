@@ -76,6 +76,7 @@ class ProjectResource extends Resource
                     ->required(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->disk('public')
                     ->directory('project_images')
                     ->visibility('public')
                     ->columnSpanFull()
@@ -87,7 +88,8 @@ class ProjectResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image')
+                    ->getStateUsing(fn ($record) => asset('storage/' . $record->image)),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('client')
