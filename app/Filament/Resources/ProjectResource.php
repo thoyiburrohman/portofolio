@@ -76,6 +76,8 @@ class ProjectResource extends Resource
                     ->required(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->directory('project_images')
+                    ->visibility('public')
                     ->columnSpanFull()
                     ->required(),
             ]);
