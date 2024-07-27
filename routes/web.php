@@ -10,7 +10,7 @@ use Telegram\Bot\Api;
 Route::get('/', function () {
     $data = [
         'setting' => General::where('id', 1)->first(),
-        'projects' => Project::where('status', 'Complete')->get(),
+        'projects' => Project::where('status', 'Complete')->latest()->get(),
     ];
     return view('home', $data);
 });
