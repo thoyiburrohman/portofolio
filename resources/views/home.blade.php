@@ -165,7 +165,7 @@
             </div>
             <div class="row justify-content-center align-items-center mb-4">
                 <div class="col-lg-5 text-lg-start text-center col-12 mb-lg-0 mb-4">
-                    <img src="{{ asset('images/home/profile.png') }}" alt="">
+                    <img src="{{ asset('images/home/profile-1.png') }}" alt="">
                 </div>
                 <div class="col-lg-7 col-12">
                     <p class="lead">{{ $setting->bio }} </p>

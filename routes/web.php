@@ -9,10 +9,9 @@ use Telegram\Bot\Api;
 
 Route::get('/', function () {
     $data = [
-        'setting' => General::where('id', 1)->first(),
-        'projects' => Project::where('status', 'Complete')->latest()->get(),
+        'projects' => Project::where('status', 1)->latest()->get(),
     ];
-    return view('home', $data);
+    return view('index', $data);
 });
 Route::post('/form-message', function (Request $request, Api $tele) {
     Message::create($request->all());
@@ -31,3 +30,24 @@ Route::post('/form-message', function (Request $request, Api $tele) {
     ]);
     return response()->json(['success' => 'message berhasil terkirim']);
 })->name('form-message');
+// Route::get('/new', function () {
+//     $data = [
+//         'projects' => Project::where('status', 1)->latest()->get(),
+//     ];
+//     return view('new', $data);
+// });
+
+Route::get('/download-cv', function () {
+    $filePath = public_path('cv.pdf'); // Path to your CV file
+
+    if (!file_exists($filePath)) {
+        // Handle case where file does not exist
+        return redirect()->back()->with('error', 'CV file not found.');
+    }
+
+    $fileName = 'Thoyiburrohman-CV.pdf'; // The name the user will see when downloading
+
+    return response()->download($filePath, $fileName, [
+        'Content-Type' => 'application/pdf',
+    ]);
+})->name('download.cv');

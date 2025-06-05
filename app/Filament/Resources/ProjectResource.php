@@ -12,75 +12,63 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Ramsey\Uuid\Type\Decimal;
 
 class ProjectResource extends Resource
 {
     protected static ?string $model = Project::class;
 
-    protected static ?string $navigationIcon = 'phosphor-suitcase-simple-duotone';
+    protected static ?string $navigationIcon = 'phosphor-suitcase-duotone';
 
-    protected static ?string $activeNavigationIcon = 'phosphor-suitcase-simple-fill';
+    protected static ?string $activeNavigationIcon = 'phosphor-suitcase-fill';
 
     protected static ?string $navigationLabel = 'Projects';
 
     protected static ?string $navigationGroup = 'Apps';
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->columnSpanFull()
+                    ->label('Nama')
                     ->required(),
-                Forms\Components\TextInput::make('client')
+                Forms\Components\Toggle::make('status')
+                    ->onIcon('phosphor-check-circle-duotone')
+                    ->offIcon('phosphor-x-circle-duotone')
+                    ->inline(false)
                     ->required(),
-                Forms\Components\TextInput::make('revenue')
-                    ->required(),
-                Forms\Components\DatePicker::make('deadline')
-                    ->required(),
-                Forms\Components\Select::make('status')
-                    ->options([
-                        'In Progress' => 'In Progress',
-                        'Complete' => 'Complete',
-                        'Hold' => 'Hold',
-                    ])
-                    ->searchable()
-                    ->required(),
+                Forms\Components\Textarea::make('description')
+                    ->label('Deskripsi')
+                    ->required()
+                    ->columnSpanFull(),
                 Forms\Components\Select::make('tech')
                     ->options([
-                        'Frontend' => [
-                            'HTML' => 'HTML',
-                            'CSS' => 'CSS',
-                            'javaScript' => 'JavaScript',
-                            'bootstrap' => 'Bootstrap',
-                            'tailwindCSS' => 'TailwindCSS',
-                            'reactJs' => 'ReactJs',
-                            'nextJs' => 'NextJs',
-                            'flutter' => 'Flutter',
-                        ],
-                        'Backend' => [
-                            'PHP' => 'PHP',
-                            'nodeJs' => 'NodeJs',
-                            'laravel' => 'Laravel',
-                            'codeigniter' => 'Codeigniter',
-                        ],
-                        'Other' => [
-                            'mySql' => 'MySql',
-                            'postgreeSql' => 'PostgreeSql',
-                            'mongoDB' => 'MongoDB',
-                        ],
+                        'Laravel' => 'Laravel',
+                        'Bootstrap' => 'Bootstrap',
+                        'TailwindCSS' => 'TailwindCSS',
+                        'NextJs' => 'NextJs',
+                        'VueJs' => 'VueJs',
+                        'Codeigniter' => 'Codeigniter',
+                        'Filament' => 'Filament',
+                        'ReactJs' => 'ReactJs',
+                        'NodeJs' => 'NodeJs',
+                        'TelegramApi' => 'TelegramApi',
+                        'Firebase' => 'Firebase',
+                        'MySql' => 'MySql',
+                        'PostgreeSql' => 'PostgreeSql',
                     ])
+                    ->required()
                     ->multiple()
-                    ->searchable()
-                    ->columnSpanFull()
-                    ->required(),
+                    ->columnSpanFull(),
+                Forms\Components\TextInput::make('github_url')
+                    ->label('Link Github'),
+                Forms\Components\TextInput::make('demo_url')
+                    ->label('Link Demo'),
                 Forms\Components\FileUpload::make('image')
+                    ->label('Gambar')
                     ->image()
-                    ->disk('public')
-                    ->directory('project_images')
-                    ->visibility('public')
-                    ->columnSpanFull()
-                    ->required(),
+                    ->required()
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -88,24 +76,14 @@ class ProjectResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image')
-                    ->getStateUsing(fn ($record) => asset('storage/' . $record->image)),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('client')
-                    ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('revenue')
-                    ->money('IDR', locale: 'id')
+                Tables\Columns\TextColumn::make('status')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('deadline')
+                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\TextColumn::make('github_url')
                     ->searchable(),
-                Tables\Columns\SelectColumn::make('status')
-                    ->options([
-                        'In Progress' => 'In Progress',
-                        'Complete' => 'Complete',
-                        'Hold' => 'Hold',
-                    ])
+                Tables\Columns\TextColumn::make('demo_url')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -120,10 +98,7 @@ class ProjectResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()
-                    ->color('warning'),
-                Tables\Actions\DeleteAction::make()
-                    ->color('danger'),
+                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
