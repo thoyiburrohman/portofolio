@@ -30,12 +30,6 @@ Route::post('/form-message', function (Request $request, Api $tele) {
     ]);
     return response()->json(['success' => 'message berhasil terkirim']);
 })->name('form-message');
-// Route::get('/new', function () {
-//     $data = [
-//         'projects' => Project::where('status', 1)->latest()->get(),
-//     ];
-//     return view('new', $data);
-// });
 
 Route::get('/download-cv', function () {
     $filePath = public_path('cv.pdf'); // Path to your CV file

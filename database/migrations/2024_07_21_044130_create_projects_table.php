@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->json('tech');
-            $table->string('status');
+            $table->boolean('status');
             $table->string('image');
             $table->string('github_url')->nullable();
             $table->string('demo_url')->nullable();
