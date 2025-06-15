@@ -193,7 +193,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div class="text-center md:text-left">
                     <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        Hi, I'm <span class="gradient-text">Tthoyiburrohman</span>
+                        Hi, I'm <span class="gradient-text">Thoyiburrohman</span>
                     </h1>
                     <h2 class="text-2xl md:text-3xl font-semibold text-slate-300 mb-6">
                         Admin Warehouse | <span class="gradient-text">Freelance Web Developer</span>
