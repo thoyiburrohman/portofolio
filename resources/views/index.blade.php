@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>thoyiburrohman | Web Developer</title>
+    <title>Thoyiburrohman | Web Developer</title>
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
     <link href="{{ asset('libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
 
@@ -193,7 +193,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div class="text-center md:text-left">
                     <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        Hi, I'm <span class="gradient-text">thoyiburrohman</span>
+                        Hi, I'm <span class="gradient-text">Tthoyiburrohman</span>
                     </h1>
                     <h2 class="text-2xl md:text-3xl font-semibold text-slate-300 mb-6">
                         Admin Warehouse | <span class="gradient-text">Freelance Web Developer</span>
@@ -271,7 +271,7 @@
                 <div>
                     <h3 class="text-2xl font-bold mb-6">Who am I?</h3>
                     <p class="text-slate-400 mb-6">
-                        Saya <span class="font-medium text-white">thoyiburrohman</span>,Seorang Admin Warehouse dengan
+                        Saya <span class="font-medium text-white">Thoyiburrohman</span>, Seorang Admin Warehouse dengan
                         pengalaman lebih dari 3 tahun. terbiasa menangani alur distribusi barang, pengelolaan stok, dan
                         dokumentasi logistik menggunakan berbagai aplikasi pendukung seperti SAP dan Sistem Supply Chain
                         Management. Tanggung jawab saya mencakup proses in/out barang, arsip berkas, stock opname,
@@ -295,7 +295,7 @@
                             </div>
                             <div>
                                 <h4 class="font-medium text-white">Name</h4>
-                                <p class="text-slate-400">Thoyiburrohman</p>
+                                <p class="text-slate-400 text-xs md:text-base truncate">Thoyiburrohman</p>
                             </div>
                         </div>
                         <div class="flex items-center">
@@ -304,7 +304,7 @@
                             </div>
                             <div>
                                 <h4 class="font-medium text-white">Email</h4>
-                                <p class="text-slate-400">hello@thoyiburrohman.com</p>
+                                <p class="text-slate-400 text-xs md:text-base truncate">hello@thoyiburrohman.com</p>
                             </div>
                         </div>
                         <div class="flex items-center">
@@ -313,7 +313,7 @@
                             </div>
                             <div>
                                 <h4 class="font-medium text-white">Location</h4>
-                                <p class="text-slate-400">Jakarta, Indonesia</p>
+                                <p class="text-slate-400 text-xs md:text-base truncate">Jakarta, Indonesia</p>
                             </div>
                         </div>
                         <div class="flex items-center">
@@ -322,7 +322,7 @@
                             </div>
                             <div>
                                 <h4 class="font-medium text-white">Freelance</h4>
-                                <p class="text-slate-400">Available</p>
+                                <p class="text-slate-400 text-xs md:text-base truncate">Available</p>
                             </div>
                         </div>
                     </div>
